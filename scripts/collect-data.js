@@ -55,13 +55,13 @@ async function kakaoAcademies(query, x, y, radius = 2000, page = 1) {
   return r.json();
 }
 
-// === 네이버: 블로그 검색 ===
-async function naverBlog(query, display = 20) {
-  const p = new URLSearchParams({ query, display: String(display), start: '1', sort: 'sim' });
+// === 네이버: 블로그 검색 (페이지네이션 지원) ===
+async function naverBlog(query, display = 100, start = 1) {
+  const p = new URLSearchParams({ query, display: String(display), start: String(start), sort: 'sim' });
   const r = await fetch(`https://openapi.naver.com/v1/search/blog.json?${p}`, {
     headers: { 'X-Naver-Client-Id': NAVER_ID, 'X-Naver-Client-Secret': NAVER_SECRET }
   });
-  if (!r.ok) return { items: [] };
+  if (!r.ok) return { items: [], total: 0 };
   return r.json();
 }
 
@@ -109,19 +109,32 @@ const OTHER_REGIONS = [
   '천안', '청주', '전주', '창원', '김해', '포항', '구미',
 ];
 
-// === 학교 관련 블로그 수집 (네이버) ===
+// === 학교 관련 블로그 수집 (네이버) — 과목별 쿼리 + 페이지네이션 ===
+const SUBJECTS_FOR_SEARCH = ['영어', '수학', '국어', '과학', '사회'];
+
 async function collectBlogs(schoolName, area, region) {
   const allBlogs = [];
+  
+  // 일반 쿼리
   const queries = [
     `서울 ${area} ${schoolName} 내신 학원`,
     `${schoolName} 내신 전문 학원 ${area}`,
-    `${area} ${schoolName} 내신`,
   ];
+  
+  // 과목별 쿼리 추가
+  for (const subj of SUBJECTS_FOR_SEARCH) {
+    queries.push(`${schoolName} ${subj} 내신 학원`);
+    queries.push(`${area} ${schoolName} ${subj} 내신`);
+  }
 
   for (const q of queries) {
-    try {
-      const res = await naverBlog(q, 20);
-      if (res.items) {
+    // 각 쿼리당 최대 2페이지 (100개 × 2 = 200개)
+    for (let page = 0; page < 2; page++) {
+      const start = page * 100 + 1;
+      try {
+        const res = await naverBlog(q, 100, start);
+        if (!res.items || res.items.length === 0) break;
+        
         for (const item of res.items) {
           const date = item.postdate || '';
           if (date && date < '20230101') continue;
@@ -134,7 +147,6 @@ async function collectBlogs(schoolName, area, region) {
           const hasOtherRegion = OTHER_REGIONS.some(r => fullText.includes(r));
           const hasCorrectArea = fullText.includes(area) || fullText.includes(region) || fullText.includes('서울');
           
-          // 다른 지역이 나오고 + 올바른 지역이 안 나오면 제외
           if (hasOtherRegion && !hasCorrectArea) continue;
           
           allBlogs.push({
@@ -145,9 +157,13 @@ async function collectBlogs(schoolName, area, region) {
             blogger: item.bloggername || '',
           });
         }
-      }
-      await sleep(DELAY);
-    } catch { /* skip */ }
+        
+        // 결과가 100개 미만이면 다음 페이지 없음
+        if (res.items.length < 100) break;
+        await sleep(DELAY);
+      } catch { break; }
+    }
+    await sleep(DELAY);
   }
 
   // 중복 URL 제거
@@ -171,6 +187,7 @@ async function main() {
   }
 
   const region = process.argv[2] || '양천구';
+  const schoolType = process.argv[3] || 'all'; // 'high', 'middle', 'all'
   const dataFile = path.join(__dirname, '..', 'data', `${region}-schools.json`);
   if (!fs.existsSync(dataFile)) {
     console.error(`❌ ${dataFile} 없음`);
@@ -178,9 +195,22 @@ async function main() {
   }
 
   const schoolData = JSON.parse(fs.readFileSync(dataFile, 'utf-8'));
-  const allSchools = [...schoolData.high_schools, ...schoolData.middle_schools];
+  let allSchools;
+  let typeLabel;
+  
+  if (schoolType === 'high') {
+    allSchools = schoolData.high_schools;
+    typeLabel = '고등학교';
+  } else if (schoolType === 'middle') {
+    allSchools = schoolData.middle_schools;
+    typeLabel = '중학교';
+  } else {
+    allSchools = [...schoolData.high_schools, ...schoolData.middle_schools];
+    typeLabel = '전체';
+  }
 
-  console.log(`\n🏫 ${region} — ${allSchools.length}개 학교 데이터 수집\n${'='.repeat(50)}`);
+  console.log(`\n🏫 ${region} ${typeLabel} — ${allSchools.length}개 학교 데이터 수집`);
+  console.log(`   과목별 쿼리 포함 (영어/수학/국어/과학/사회)\n${'='.repeat(50)}`);
 
   const wb = XLSX.utils.book_new();
 
@@ -245,7 +275,8 @@ async function main() {
   XLSX.utils.book_append_sheet(wb, ws2, '네이버_블로그');
   XLSX.utils.book_append_sheet(wb, ws3, '최종정리');
 
-  const outFile = path.join(__dirname, '..', `${region}_학원데이터.xlsx`);
+  const suffix = schoolType === 'all' ? '' : `_${typeLabel}`;
+  const outFile = path.join(__dirname, '..', `${region}${suffix}_학원데이터.xlsx`);
   XLSX.writeFile(wb, outFile);
 
   console.log(`\n${'='.repeat(50)}`);
