@@ -66,8 +66,10 @@ async function naverBlog(query, display = 20) {
 }
 
 // === 학교 주변 학원 수집 (카카오) ===
-async function collectKakaoAcademies(schoolName, area) {
-  const coords = await kakaoCoords(`${area} ${schoolName}`);
+async function collectKakaoAcademies(schoolName, area, address) {
+  // 주소가 있으면 주소로 좌표 검색 (동명 학교 문제 방지)
+  const searchQuery = address || `서울 ${area} ${schoolName}`;
+  const coords = await kakaoCoords(searchQuery);
   if (!coords) return [];
 
   const all = new Map();
@@ -98,12 +100,12 @@ async function collectKakaoAcademies(schoolName, area) {
 }
 
 // === 학교 관련 블로그 수집 (네이버) ===
-async function collectBlogs(schoolName) {
+async function collectBlogs(schoolName, area) {
   const allBlogs = [];
   const queries = [
     `${schoolName} 내신 학원`,
     `${schoolName} 내신 전문 학원`,
-    `${schoolName} 내신 대비`,
+    `${area} ${schoolName} 내신`,
   ];
 
   for (const q of queries) {
@@ -177,7 +179,7 @@ async function main() {
     // 카카오 학원 수집
     process.stdout.write('  📍 카카오 학원 검색... ');
     try {
-      const academies = await collectKakaoAcademies(school.name, school.area || region);
+      const academies = await collectKakaoAcademies(school.name, school.area || region, school.address);
       console.log(`${academies.length}개`);
       for (const a of academies) {
         kakaoRows.push([school.name, a.name, a.address, a.phone, a.kakaoUrl, a.distance]);
@@ -189,7 +191,7 @@ async function main() {
     // 네이버 블로그 수집
     process.stdout.write('  📝 네이버 블로그 검색... ');
     try {
-      const blogs = await collectBlogs(school.name);
+      const blogs = await collectBlogs(school.name, school.area || region);
       console.log(`${blogs.length}개`);
       for (const b of blogs) {
         blogRows.push([school.name, b.title, b.url, b.date, b.blogger, b.description.slice(0, 200)]);
