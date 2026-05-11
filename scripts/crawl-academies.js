@@ -19,7 +19,6 @@ require('dotenv').config();
 // === CONFIG ===
 const NAVER_CLIENT_ID = process.env.NAVER_CLIENT_ID;
 const NAVER_CLIENT_SECRET = process.env.NAVER_CLIENT_SECRET;
-const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 
 const SUBJECTS = ['국어', '영어', '수학', '과학', '사회'];
 const BLOG_RESULTS_PER_QUERY = 20;
