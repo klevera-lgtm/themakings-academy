@@ -1,0 +1,113 @@
+{
+  "school": "목동중학교",
+  "updated": "2026-05-11",
+  "subjects": {
+    "국어": [],
+    "영어": [
+      {
+        "name": "수학학원",
+        "mentions": 5,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (5회 언급)"
+      },
+      {
+        "name": "영어학원",
+        "mentions": 3,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (3회 언급)"
+      },
+      {
+        "name": "점와와학습코칭학원",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      },
+      {
+        "name": "영수학원",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      },
+      {
+        "name": "정상어학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      },
+      {
+        "name": "중수학학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      }
+    ],
+    "수학": [
+      {
+        "name": "위드매쓰학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      },
+      {
+        "name": "입시미술학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      }
+    ],
+    "과학": [],
+    "사회": [],
+    "기타": [
+      {
+        "name": "내신학원",
+        "mentions": 3,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (3회 언급)"
+      },
+      {
+        "name": "중학교내신학원",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      },
+      {
+        "name": "내신대비학원",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      },
+      {
+        "name": "서울목동중등중학교내신학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      },
+      {
+        "name": "양천구목동영수중학교내신학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      },
+      {
+        "name": "목동중학교내신학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      }
+    ]
+  }
+}

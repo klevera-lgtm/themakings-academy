@@ -1,0 +1,92 @@
+{
+  "school": "신목중학교",
+  "updated": "2026-05-11",
+  "subjects": {
+    "국어": [
+      {
+        "name": "체육학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      }
+    ],
+    "영어": [
+      {
+        "name": "내신대비학원",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      },
+      {
+        "name": "내신학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      }
+    ],
+    "수학": [
+      {
+        "name": "수학학원",
+        "mentions": 6,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (6회 언급)"
+      },
+      {
+        "name": "강서구수학학원",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      },
+      {
+        "name": "당산수학학원",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      },
+      {
+        "name": "양평수학학원",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      },
+      {
+        "name": "길벗아카데미",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      },
+      {
+        "name": "길벗수학학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      },
+      {
+        "name": "중학생수학학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      },
+      {
+        "name": "양천구수학학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      }
+    ],
+    "과학": [],
+    "사회": [],
+    "기타": []
+  }
+}

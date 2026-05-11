@@ -1,0 +1,63 @@
+{
+  "school": "봉영여자중학교",
+  "updated": "2026-05-11",
+  "subjects": {
+    "국어": [
+      {
+        "name": "강원희국어학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      },
+      {
+        "name": "고등학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      }
+    ],
+    "영어": [
+      {
+        "name": "영어교습소",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      },
+      {
+        "name": "목동영어교습소",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      },
+      {
+        "name": "영어학원",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      },
+      {
+        "name": "목동학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      },
+      {
+        "name": "양천구영어학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      }
+    ],
+    "수학": [],
+    "과학": [],
+    "사회": [],
+    "기타": []
+  }
+}

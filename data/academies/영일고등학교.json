@@ -1,0 +1,92 @@
+{
+  "school": "영일고등학교",
+  "updated": "2026-05-11",
+  "subjects": {
+    "국어": [
+      {
+        "name": "추진학원",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      },
+      {
+        "name": "국어학원",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      },
+      {
+        "name": "한얼국어학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      },
+      {
+        "name": "목3동학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      },
+      {
+        "name": "등촌역학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      },
+      {
+        "name": "목3동국어학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      },
+      {
+        "name": "등촌역국어학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      }
+    ],
+    "영어": [
+      {
+        "name": "영어교습소",
+        "mentions": 3,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (3회 언급)"
+      },
+      {
+        "name": "내신학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      }
+    ],
+    "수학": [
+      {
+        "name": "영일고등학교내신학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      },
+      {
+        "name": "로드맵수학학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      }
+    ],
+    "과학": [],
+    "사회": [],
+    "기타": []
+  }
+}

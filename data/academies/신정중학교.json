@@ -1,0 +1,50 @@
+{
+  "school": "신정중학교",
+  "updated": "2026-05-11",
+  "subjects": {
+    "국어": [],
+    "영어": [
+      {
+        "name": "내신학원",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      }
+    ],
+    "수학": [
+      {
+        "name": "수학학원",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      }
+    ],
+    "과학": [],
+    "사회": [],
+    "기타": [
+      {
+        "name": "내신대비학원",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      },
+      {
+        "name": "신정중학교내신대비학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      },
+      {
+        "name": "신정중학교학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      }
+    ]
+  }
+}

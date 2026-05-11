@@ -1,0 +1,70 @@
+{
+  "school": "서울영상고등학교",
+  "updated": "2026-05-11",
+  "subjects": {
+    "국어": [],
+    "영어": [
+      {
+        "name": "영어학원",
+        "mentions": 3,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (3회 언급)"
+      },
+      {
+        "name": "목동학원",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      },
+      {
+        "name": "양천구영어학원",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      },
+      {
+        "name": "수학학원",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      },
+      {
+        "name": "소수정예학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      },
+      {
+        "name": "수능학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      },
+      {
+        "name": "전과목학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      }
+    ],
+    "수학": [],
+    "과학": [],
+    "사회": [],
+    "기타": [
+      {
+        "name": "내신학원",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      }
+    ]
+  }
+}

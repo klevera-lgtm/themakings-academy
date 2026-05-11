@@ -1,0 +1,70 @@
+{
+  "school": "신원중학교",
+  "updated": "2026-05-11",
+  "subjects": {
+    "국어": [],
+    "영어": [
+      {
+        "name": "영어학원",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      },
+      {
+        "name": "강신학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      }
+    ],
+    "수학": [],
+    "과학": [],
+    "사회": [],
+    "기타": [
+      {
+        "name": "내신학원",
+        "mentions": 3,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (3회 언급)"
+      },
+      {
+        "name": "내신대비학원",
+        "mentions": 2,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (2회 언급)"
+      },
+      {
+        "name": "신원동내신학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      },
+      {
+        "name": "신원중학교내신학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      },
+      {
+        "name": "신원중학교내신대비학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      },
+      {
+        "name": "신원중학교학원",
+        "mentions": 1,
+        "address": "",
+        "phone": "",
+        "source": "블로그 자동 수집 (1회 언급)"
+      }
+    ]
+  }
+}
