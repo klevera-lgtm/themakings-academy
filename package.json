@@ -1,0 +1,14 @@
+{
+  "name": "themakings-academy",
+  "version": "1.0.0",
+  "description": "학교별 내신 전문 학원 찾기 - 더메이킹스",
+  "scripts": {
+    "crawl": "node scripts/crawl-academies.js",
+    "build": "node scripts/generate-pages.js",
+    "crawl:yangcheon": "node scripts/crawl-academies.js 양천구",
+    "all": "npm run crawl:yangcheon && npm run build"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
