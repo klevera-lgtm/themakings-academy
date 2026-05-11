@@ -99,12 +99,22 @@ async function collectKakaoAcademies(schoolName, area, address) {
   return [...all.values()].sort((a, b) => a.distance - b.distance);
 }
 
+// === 다른 지역 필터 ===
+const OTHER_REGIONS = [
+  '부산', '대구', '인천', '광주', '대전', '울산', '세종',
+  '경기', '강원', '충북', '충남', '전북', '전남', '경북', '경남', '제주',
+  '안산', '동탄', '화성', '수원', '성남', '용인', '고양', '일산',
+  '파주', '김포', '평택', '시흥', '광명', '안양', '의왕', '군포',
+  '하남', '구리', '남양주', '의정부', '양주', '포천',
+  '천안', '청주', '전주', '창원', '김해', '포항', '구미',
+];
+
 // === 학교 관련 블로그 수집 (네이버) ===
-async function collectBlogs(schoolName, area) {
+async function collectBlogs(schoolName, area, region) {
   const allBlogs = [];
   const queries = [
-    `${schoolName} 내신 학원`,
-    `${schoolName} 내신 전문 학원`,
+    `서울 ${area} ${schoolName} 내신 학원`,
+    `${schoolName} 내신 전문 학원 ${area}`,
     `${area} ${schoolName} 내신`,
   ];
 
@@ -115,9 +125,21 @@ async function collectBlogs(schoolName, area) {
         for (const item of res.items) {
           const date = item.postdate || '';
           if (date && date < '20230101') continue;
+          
+          const title = strip(item.title);
+          const desc = strip(item.description);
+          const fullText = title + ' ' + desc;
+          
+          // 다른 지역 언급 필터링
+          const hasOtherRegion = OTHER_REGIONS.some(r => fullText.includes(r));
+          const hasCorrectArea = fullText.includes(area) || fullText.includes(region) || fullText.includes('서울');
+          
+          // 다른 지역이 나오고 + 올바른 지역이 안 나오면 제외
+          if (hasOtherRegion && !hasCorrectArea) continue;
+          
           allBlogs.push({
-            title: strip(item.title),
-            description: strip(item.description),
+            title,
+            description: desc,
             url: item.link,
             date: date ? `${date.slice(0,4)}-${date.slice(4,6)}-${date.slice(6,8)}` : '',
             blogger: item.bloggername || '',
@@ -191,7 +213,7 @@ async function main() {
     // 네이버 블로그 수집
     process.stdout.write('  📝 네이버 블로그 검색... ');
     try {
-      const blogs = await collectBlogs(school.name, school.area || region);
+      const blogs = await collectBlogs(school.name, school.area || region, region);
       console.log(`${blogs.length}개`);
       for (const b of blogs) {
         blogRows.push([school.name, b.title, b.url, b.date, b.blogger, b.description.slice(0, 200)]);
